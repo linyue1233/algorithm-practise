@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da500c2b-29e8-41e5-81ea-fe4280dd980e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tikTok.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tree/BinaryTreeMaximumPath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tikTok.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tikTok.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +48,34 @@
       <workItem from="1634015617465" duration="1544000" />
       <workItem from="1634096730306" duration="1365000" />
       <workItem from="1634184209115" duration="1981000" />
+      <workItem from="1634186952538" duration="160000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1634186988280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634186988280</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="309" y="49" key="CommitChangelistDialog2" timestamp="1634186988038">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="309" y="49" key="CommitChangelistDialog2/0.0.1440.900/1440.0.2560.1440@0.0.1440.900" timestamp="1634186988038" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1634187044596">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.2560.1440@0.0.1440.900" timestamp="1634187044596" />
     <state x="397" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1634186955010">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
