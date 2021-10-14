@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da500c2b-29e8-41e5-81ea-fe4280dd980e" name="Default Changelist" comment="" />
+    <list default="true" id="da500c2b-29e8-41e5-81ea-fe4280dd980e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tikTok.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tree/BinaryTreeMaximumPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +19,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1zO9sXpAmlmVGb71eK4vwRHhi0h" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +31,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -37,7 +47,9 @@
       <updated>1634008474032</updated>
       <workItem from="1634008478943" duration="3272000" />
       <workItem from="1634012856845" duration="113000" />
-      <workItem from="1634015617465" duration="471000" />
+      <workItem from="1634015617465" duration="1544000" />
+      <workItem from="1634096730306" duration="1365000" />
+      <workItem from="1634184209115" duration="1981000" />
     </task>
     <servers />
   </component>
@@ -45,10 +57,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="397" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1634015622515">
+    <state x="397" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1634184212563">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="397" y="279" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.2560.1440@0.0.1440.900" timestamp="1634015622515" />
+    <state x="397" y="279" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.2560.1440@0.0.1440.900" timestamp="1634184212563" />
     <state x="397" y="272" key="com.intellij.ide.util.TipDialog/0.25.1440.796/1440.25.2560.1415@0.25.1440.796" timestamp="1634012895103" />
   </component>
 </project>
