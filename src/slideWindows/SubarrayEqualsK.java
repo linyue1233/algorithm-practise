@@ -22,7 +22,4 @@ public class SubarrayEqualsK {
         }
         return ans;
     }
-    public static void main(String[] args) {
-
-    }
 }
