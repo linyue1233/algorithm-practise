@@ -75,12 +75,5 @@ public class tikTok {
         }
         return ans;
     }
-
-    public static void main(String[] args) {
-//        String[] words = {"a","b","ba","bca","bda","bdca"};
-//        System.out.println(longestStrChain(words));
-        int[] nums = {34,656,2,6,4,3,9,};
-        System.out.println(minimumStepDivided(nums));
-    }
 }
 
