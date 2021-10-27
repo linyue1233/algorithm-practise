@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import java.util.Arrays;
+
 public class LongestIncreasingSub {
     // 300
     public int lengthOfLIS(int[] nums) {
