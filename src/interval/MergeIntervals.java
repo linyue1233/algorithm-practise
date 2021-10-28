@@ -9,7 +9,7 @@ public class MergeIntervals {
     // 56
     public int[][] merge(int[][] intervals) {
         if(intervals.length == 1) return intervals;
-        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
         List<int[]>  ans = new ArrayList<>();
         int left = intervals[0][0],pre = intervals[0][1];
         for(int i = 1;i<intervals.length;++i){
