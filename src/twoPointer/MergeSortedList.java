@@ -21,7 +21,7 @@ public class MergeSortedList {
         }
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode preHead = new ListNode(-1);
         ListNode prePoint = preHead;
         while(l1!=null && l2!=null){
