@@ -22,6 +22,8 @@ public class ValidPalindrome {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("0P"));
+        String a = "a";
+//        System.out.println(a.substring(0,1));
+        System.out.println(isPalindrome(a));
     }
 }
