@@ -25,27 +25,35 @@ public class MaximumDepthTree {
     }
 
     // 104
-    public int maxDepth(TreeNode root) {
-        int ans = 0;
-        if (root == null) return 0;
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
-        while (queue.size() != 0) {
-            ans++;
-            int len = queue.size();
-            for(int i = 0;i<len;++i){
-                TreeNode tempNode = queue.peek();
-                queue.poll();
-                if(tempNode.left!=null){
-                    queue.add(tempNode.left);
-                }
-                if(tempNode.right!=null){
-                    queue.add(tempNode.right);
-                }
-            }
-        }
-        return ans;
-    }
-
 //    public int maxDepth(TreeNode root) {
+//        int ans = 0;
+//        if (root == null) return 0;
+//        Queue<TreeNode> queue = new ArrayDeque<>();
+//        queue.add(root);
+//        while (queue.size() != 0) {
+//            ans++;
+//            int len = queue.size();
+//            for(int i = 0;i<len;++i){
+//                TreeNode tempNode = queue.peek();
+//                queue.poll();
+//                if(tempNode.left!=null){
+//                    queue.add(tempNode.left);
+//                }
+//                if(tempNode.right!=null){
+//                    queue.add(tempNode.right);
+//                }
+//            }
+//        }
+//        return ans;
+//    }
+
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int maxLeft = maxDepth(root.left);
+            int maxRight = maxDepth(root.right);
+            return Math.max(maxLeft, maxRight) + 1;
+        }
+    }
 }
