@@ -1,6 +1,7 @@
 package tree;
 
 public class BinaryTreeMaximumPath {
+    // 124
     public class TreeNode {
         int val;
         TreeNode left;
@@ -19,10 +20,22 @@ public class BinaryTreeMaximumPath {
             this.right = right;
         }
     }
+    int maxAns = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
-        
-        return -1;
+        if(root == null){
+            return 0;
+        }
+        dfs(root);
+        return maxAns;
+    }
+
+    private int dfs(TreeNode root){
+        if(root == null) return 0;
+        int maxLeft = Math.max(0, dfs(root.left));
+        int maxRight = Math.max(0,dfs(root.right));
+        maxAns = Math.max(maxAns, root.val + maxLeft + maxRight);
+        return root.val + Math.max(maxLeft, maxRight);
     }
 
 }
