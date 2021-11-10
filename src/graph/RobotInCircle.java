@@ -22,14 +22,9 @@ public class RobotInCircle {
                 }else{
                     x -= 1;
                 }
-                continue;
             }
         }
         initVector = Math.abs(initVector%360);
-        if(initVector != 0 || (x == 0 && y == 0)){
-            return true;
-        }else{
-            return false;
-        }
+        return initVector != 0 || (x == 0 && y == 0);
     }
 }
