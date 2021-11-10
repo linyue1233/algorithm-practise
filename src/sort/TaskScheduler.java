@@ -6,8 +6,8 @@ public class TaskScheduler {
     // 621
     public int leastInterval(char[] tasks, int n) {
         int[] buckets = new int[26];
-        for(int i = 0; i < tasks.length; i++){
-            buckets[tasks[i] - 'A']++;
+        for (char task : tasks) {
+            buckets[task - 'A']++;
         }
         Arrays.sort(buckets);
         int maxTimes = buckets[25];
