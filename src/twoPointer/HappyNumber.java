@@ -1,4 +1,4 @@
-package other;
+package twoPointer;
 
 import java.util.Deque;
 import java.util.HashMap;
