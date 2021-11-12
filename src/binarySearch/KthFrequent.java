@@ -16,7 +16,6 @@ public class KthFrequent {
         Set<Map.Entry<Integer,Integer>> entries = map.entrySet();
 
         PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((o1, o2) -> o1.getValue() - o2.getValue());
-//        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
 
         for (Map.Entry<Integer, Integer> entry : entries) {
             if (queue.size() == k) {
