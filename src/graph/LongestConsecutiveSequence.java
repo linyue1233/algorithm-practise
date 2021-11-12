@@ -11,7 +11,7 @@ public class LongestConsecutiveSequence {
         for(int item : nums){
             map.add(item);
         }
-        int ans = 0,cur = 0;
+        int ans = 0;
         for(int item : map){
             if( map.contains( item - 1 )){
                 continue;
