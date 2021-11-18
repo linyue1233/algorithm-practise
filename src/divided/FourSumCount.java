@@ -17,7 +17,7 @@ public class FourSumCount {
 
         for(int i =0;i<n;++i){
             for(int j = 0;j<n;j++){
-                int temp = 0 - (nums3[i]+nums4[j]);
+                int temp = -(nums3[i] + nums4[j]);
                 if(map.containsKey(temp)){
                     ans += map.get(temp);
                 }
