@@ -4,7 +4,6 @@ public class FindNthDigital {
     // 400
     public static int findNthDigit(int n) {
         int d = 1;
-        int count = 0;
         int nine = 9;
         while (n > (long) d * nine) {
             n -= d * nine;
