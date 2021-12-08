@@ -22,7 +22,7 @@ public class MaxSumOfThreeSubarrays {
             left[i] = sum[i] > sum[left[i - 1]] ? i : left[i - 1];
         }
         for (int i = sum.length - 2; i >= 0; --i) {
-            right[i] = sum[i] > sum[right[i + 1]] ? i : right[i + 1];
+            right[i] = sum[i] >= sum[right[i + 1]] ? i : right[i + 1];
         }
         // find the mid intervals
         int maxSum = 0;
