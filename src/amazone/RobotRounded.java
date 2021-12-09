@@ -22,7 +22,6 @@ public class RobotRounded {
                 } else {
                     x -= 1;
                 }
-                continue;
             }
         }
         initVector = Math.abs(initVector % 360);

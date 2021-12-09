@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 public class MaximumUnits {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         // build max-heap
+        // 1710
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> b[1]-a[1]);
         for(int[] item : boxTypes){
             pq.offer(item);
