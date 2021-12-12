@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class Anagrams {
     // store Anagrams
-    private final Integer[] primes;
-    private Map<Character, Integer> letterTable = new HashMap<Character, Integer>();
-    private Map<Long, ArrayList<String>> anagramTable = new HashMap<Long, ArrayList<String>>();
+    final Integer[] primes;
+    Map<Character, Integer> letterTable = new HashMap<Character, Integer>();
+    Map<Long, ArrayList<String>> anagramTable = new HashMap<Long, ArrayList<String>>();
 
     public Anagrams() {
         // initialize the array
