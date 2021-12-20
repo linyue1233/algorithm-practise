@@ -10,7 +10,7 @@ public class FindHeaters {
         Arrays.sort(heaters);
         int i = 0, j = 0;
         int distance = 0;
-        // for eaach house, it uses the pre-heater or late-heaater
+        // for each house, it uses the pre-heater or late-heater
         // compare the two distances
         for(i = 0;i<houses.length;++i){
             while(j<heaters.length && heaters[j] < houses[i]){
