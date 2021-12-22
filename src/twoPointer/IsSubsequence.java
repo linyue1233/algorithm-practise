@@ -6,7 +6,6 @@ import java.util.Map;
 public class IsSubsequence {
     // 392
     public boolean isSubsequence(String s, String t) {
-        Map<Integer,Integer> map = new HashMap<>();
         if(s.length() == 0){
             return true;
         }

@@ -1,9 +1,6 @@
 package amazone;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CourseSchedule {
     // 210
@@ -19,7 +16,6 @@ public class CourseSchedule {
             edges.get(item[1]).add(item[0]);
             ++store[item[0]];
         }
-
         Deque<Integer> deque = new LinkedList<>();
         for(int i = 0;i<numCourses;++i){
             if(store[i] == 0){

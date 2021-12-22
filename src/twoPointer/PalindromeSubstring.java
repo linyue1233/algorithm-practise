@@ -3,6 +3,7 @@ package twoPointer;
 public class PalindromeSubstring {
     // 647
     public int countSubstrings(String s) {
+        // center spread
         int ans = 0, len = s.length();
         for(int i = 0;i<len;++i){
             // the number is odd
