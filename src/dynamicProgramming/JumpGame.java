@@ -1,7 +1,7 @@
 package dynamicProgramming;
 
 public class JumpGame {
-    // 33
+    // 55
     public static boolean canJump(int[] nums) {
         if(nums.length == 1) return true;
         int maxPaths = 0;
