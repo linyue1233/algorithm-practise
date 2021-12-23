@@ -4,6 +4,7 @@ import java.util.*;
 
 public class MaxSumOfThreeSubarrays {
 
+    //689
     public static int[] maxSumOfThreeSubarrays(int[] nums, int k) {
         int len = nums.length;
         // store pre sum of k
