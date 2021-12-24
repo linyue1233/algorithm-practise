@@ -6,7 +6,6 @@ import java.util.Map;
 public class FirstUniqueCharacter {
     // 387
     public int firstUniqChar(String s) {
-        Map<Integer,Integer> map = new HashMap<>();
         int[] letters = new int[26];
 
         for(int i = 0;i<s.length();++i){
