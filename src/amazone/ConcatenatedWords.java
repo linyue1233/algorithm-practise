@@ -11,11 +11,11 @@ public class ConcatenatedWords {
         List<String> ans = new ArrayList<>();
         trie = new Trie();
         Arrays.sort(words, (a, b) -> a.length() - b.length());
-        for (int i = 0; i < words.length; ++i) {
-            if (canBeConcatenated(words[i], 0)) {
-                ans.add(words[i]);
+        for (String word : words) {
+            if (canBeConcatenated(word, 0)) {
+                ans.add(word);
             } else {
-                trie.addWord(words[i]);
+                trie.addWord(word);
             }
         }
         return ans;
@@ -39,8 +39,8 @@ public class ConcatenatedWords {
         return false;
     }
 
-    class Trie {
-        Trie tree[];
+    static class Trie {
+        Trie[] tree;
         boolean isEnd;
 
         public Trie() {
