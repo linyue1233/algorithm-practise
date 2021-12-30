@@ -5,16 +5,32 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Anagrams {
-    public int findKthLargest(int[] nums, int k) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int item : nums){
-            map.put(item, map.getOrDefault(item,0)+1);
-        }
+    static List<List<Integer>> ans = new ArrayList<>();
 
-        PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>((a,b)->b.getKey()-a.getKey());
-        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
-            pq.offer(entry);
+    public static List<List<Integer>> permute(int[] nums) {
+        List<Integer> tempAns = new ArrayList<>();
+        boolean[] visited = new boolean[nums.length];
+        backTrack(nums,tempAns,visited);
+        return ans;
+    }
+
+    private static void backTrack(int[] nums, List<Integer> tempAns, boolean[] visited){
+        if(tempAns.size() == nums.length){
+            ans.add(new ArrayList<>(tempAns));
+            return;
         }
-        return 0;
+        for(int i = 0;i<visited.length;++i){
+            if( !visited[i] ){
+                visited[i] = true;
+                tempAns.add(nums[i]);
+                backTrack(nums,tempAns,visited);
+                tempAns.remove(tempAns.size()-1);
+                visited[i] = false;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        permute(new int[]{1,2,3});
     }
 }
