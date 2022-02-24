@@ -1,0 +1,23 @@
+package amazone;
+
+import java.util.PriorityQueue;
+
+public class MinimumCostSticks {
+    //1167
+    public int connectSticks(int[] sticks) {
+        if(sticks.length == 1) return 0;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        int n = sticks.length;
+        int ans = 0;
+        for(int i = 0;i<n;++i){
+            pq.add(sticks[i]);
+        }
+        while( pq.size() -1 != 0){
+            int temp = pq.poll() + pq.poll();
+            ans += temp;
+            pq.add(temp);
+        }
+        return ans;
+    }
+}
