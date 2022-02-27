@@ -10,8 +10,8 @@ public class MinimumCostSticks {
 
         int n = sticks.length;
         int ans = 0;
-        for(int i = 0;i<n;++i){
-            pq.add(sticks[i]);
+        for (int stick : sticks) {
+            pq.add(stick);
         }
         while( pq.size() -1 != 0){
             int temp = pq.poll() + pq.poll();
