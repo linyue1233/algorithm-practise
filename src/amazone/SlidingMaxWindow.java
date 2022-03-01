@@ -5,23 +5,22 @@ import java.util.LinkedList;
 
 public class SlidingMaxWindow {
     public int[] maxSlidingWindow(int[] nums, int k) {
+        // 239 monotonic decrease
         int n = nums.length;
-        int[] ans = new int[n-k+1];
-        // store the index of nums
-        // maintain the deque from big to small
         Deque<Integer> deque = new LinkedList<>();
-        for(int i = 0;i<n;++i){
-            // maintain the quality of deque
-            while( !deque.isEmpty() && nums[i] >= nums[deque.peekLast()]){
+        int[] ans = new int[n - k + 1];
+        int index = 0;
+        for (int i = 0; i < n; ++i) {
+            while (!deque.isEmpty() && nums[i] >= nums[deque.peekLast()]) {
                 deque.pollLast();
             }
-            deque.addLast(i);
-            // range [i-k+1,i]
-            if(deque.peek()<i-k+1){
-                deque.poll();
+            deque.offerLast(i);
+            // range :[i-k+1,i]    0-2   3
+            if (deque.peekFirst() < i - k + 1) {
+                deque.pollFirst();
             }
-            if(i>=k-1){
-                ans[i-k+1] = nums[deque.peek()];
+            if (i - k + 1 >= 0) {
+                ans[index++] = nums[deque.peekFirst()];
             }
         }
         return ans;
