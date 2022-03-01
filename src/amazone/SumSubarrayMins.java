@@ -8,12 +8,14 @@ public class SumSubarrayMins {
     public int sumSubarrayMins(int[] arr) {
         long ans = 0;
         int n = arr.length;
+        int mod = 1000000007;
         // used to store the left index which is the least number
         int[] left = new int[n];
         int[] right = new int[n];
         Deque<Integer> deque = new LinkedList<>();
         // monotonic increase
         // loop to find leftIndex
+        // store different parts minimum
         for(int i = 0;i<n;++i){
             while( !deque.isEmpty() && arr[deque.peekLast()] > arr[i] ){
                 deque.pollLast();
@@ -39,7 +41,7 @@ public class SumSubarrayMins {
         }
         for(int i = 0;i<n;++i){
             ans += (long)arr[i] * (i-left[i]) * (right[i]-i);
-            ans = ans % 1000000007;
+            ans = ans % mod;
         }
         return (int)ans;
     }
