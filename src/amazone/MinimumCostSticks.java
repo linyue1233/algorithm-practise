@@ -6,6 +6,7 @@ public class MinimumCostSticks {
     //1167
     public int connectSticks(int[] sticks) {
         if(sticks.length == 1) return 0;
+        // build min heap
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         int n = sticks.length;
