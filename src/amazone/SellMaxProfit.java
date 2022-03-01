@@ -4,41 +4,42 @@ import java.util.Arrays;
 
 public class SellMaxProfit {
     // 1648
-    public static int maxProfit(int[] inventory, int orders) {
-        // 很明显，应该先卖个数最多的球
+    public int maxProfit(int[] inventory, int orders) {
+        long ans = 0;
         int mod = 1000000007;
         Arrays.sort(inventory);
         int curIndex = inventory.length-1;
         int curValue = inventory[curIndex];
 
-        long profit = 0;
-        while(orders>0) {
-            while(curIndex>=0 && inventory[curIndex]==curValue) {
+        while(orders > 0 ){
+            while( curIndex >= 0 && inventory[curIndex] == curValue){
                 curIndex--;
             }
-            // 令最少的为0球，防止越界
-            int nextValue = curIndex<0?0:inventory[curIndex];
-            // 目前球相等的个数
-            int numSameColor = inventory.length-1-curIndex;
-            // 将要买的球的个数
-            int nums = (curValue-nextValue)*numSameColor;
 
-            if(orders>nums) {
-                // 如果还可以买的个数较多，就直接全买
-                profit += (long)(curValue + nextValue + 1) * (curValue - nextValue) / 2 * numSameColor;
-            } else {
-                // 不能全买
+            // the row length which balls equals
+            int rowLength = inventory.length - curIndex -1;
+            // avoid out of range
+            int nextValue = curIndex<0?0:inventory[curIndex];
+            // all numbervalue wait to buy
+            int numberValue = rowLength * (curValue - nextValue);
+
+            // buy all
+            if( orders >= numberValue  ){
+                long tempValue = (long)rowLength * (curValue + nextValue + 1) *(curValue - nextValue)/2;
+                ans += tempValue;
+            }else{
                 // mid is the number after change
-                int mid = curValue - orders/numSameColor;
-                int remainder = orders%numSameColor;
-                profit += (long)(curValue + mid+ 1) * (orders/numSameColor) / 2 * numSameColor;
-                profit += (long)mid * remainder;
+                // remainer is the count of last row
+                int mid = curValue - orders/rowLength;
+                int remainer = orders%rowLength;
+                ans += (long)(curValue + mid +1) * (orders/rowLength) /2 * rowLength;
+                ans += (long)mid * remainer;
             }
-            orders -= nums;
-            profit = profit % mod;
+            orders -= numberValue;
             curValue = nextValue;
+            ans = ans % mod;
         }
-        return (int)profit;
+        return (int)ans;
     }
 //    int mod = 1000000007;
 //    public int maxProfit(int[] inventory, int orders) {
