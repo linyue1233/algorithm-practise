@@ -5,59 +5,67 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ConcatenatedWords {
+    // 472
     Trie trie;
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        List<String> ans = new ArrayList<>();
-        trie = new Trie();
         Arrays.sort(words, (a, b) -> a.length() - b.length());
+        List<String> ans = new ArrayList<>();
         for (String word : words) {
-            if (canBeConcatenated(word, 0)) {
+            if (word.length() == 0) continue;
+            boolean[] visited = new boolean[word.length()];
+            if (dfs(word, 0, visited)) {
                 ans.add(word);
             } else {
-                trie.addWord(word);
+                insertWord(word);
             }
         }
         return ans;
     }
 
-    public boolean canBeConcatenated(String word, int index) {
-        if (index > 0 && index == word.length()) {
+    public boolean dfs(String word, int index, boolean[] visited) {
+        if (index == word.length()) {
             return true;
         }
+        if (visited[index]) {
+            return false;
+        }
+        visited[index] = true;
         Trie t = trie;
-        for (int i = index; i < word.length(); i++) {
-            int k = word.charAt(i) - 'a';
-            if (t.tree[k] == null) {
+        for (int i = index; i < word.length(); ++i) {
+            int temp = word.charAt(i) - 'a';
+            t = t.tree[temp];
+            if (t == null) {
                 return false;
             }
-            t = t.tree[k];
-            if (t.isEnd && canBeConcatenated(word, i + 1)) {
+            if (t.isEnd && dfs(word, i + 1, visited)) {
                 return true;
             }
         }
         return false;
     }
 
-    static class Trie {
-        Trie[] tree;
-        boolean isEnd;
-
-        public Trie() {
-            tree = new Trie[26];
-            isEnd = false;
-        }
-
-        public void addWord(String s) {
-            Trie t = this;
-            for (int i = 0; i < s.length(); ++i) {
-                char c = s.charAt(i);
-                if (t.tree[c - 'a'] == null) {
-                    t.tree[c - 'a'] = new Trie();
-                }
-                t = t.tree[c - 'a'];
+    public void insertWord(String word) {
+        Trie t = trie;
+        for (int i = 0; i < word.length(); ++i) {
+            int temp = word.charAt(i) - 'a';
+            if (t.tree[temp] == null) {
+                t.tree[temp] = new Trie();
             }
-            t.isEnd = true;
+            t = t.tree[temp];
         }
+        t.isEnd = true;
     }
+}
+
+class Trie {
+    Trie[] tree;
+    boolean isEnd;
+
+    public Trie() {
+        tree = new Trie[26];
+        isEnd = false;
+    }
+
+
 }
