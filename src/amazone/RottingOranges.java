@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class RottingOranges {
     //994
-    public static int orangesRotting(int[][] grid) {
+    public int orangesRotting(int[][] grid) {
         // BFS
         int[] directions = new int[]{-1,0,1,0,-1};
         int m = grid.length, n = grid[0].length;
@@ -24,7 +24,7 @@ public class RottingOranges {
                 }
             }
         }
-
+        if(freshNum == 0) return 0;
         while( !deque.isEmpty() ){
             int size = deque.size();
             ans++;
@@ -47,12 +47,6 @@ public class RottingOranges {
             }
         }
 
-        return freshNum == 0 ? ans : -1;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(orangesRotting(new int[][]{
-                {2,1,1},{1,1,0},{0,1,1}
-        }));
+        return freshNum == 0 ? ans-1 : -1;
     }
 }
