@@ -2,16 +2,17 @@ package amazone;
 
 public class WordSearch {
     //79
-    int[] dirctions = {-1,0,1,0,-1};
-
+    int[] directions = new int[]{-1,0,1,0,-1};
+    int m ,n;
     public boolean exist(char[][] board, String word) {
-        int m = board.length, n = board[0].length;
-        boolean flag = false;
+        //DFS
+        m = board.length;
+        n = board[0].length;
         boolean[][] visited = new boolean[m][n];
         for(int i = 0;i<m;++i){
             for(int j = 0;j<n;++j){
-                flag = dfs(board, word, i, j, 0,visited);
-                if(flag){
+                boolean flag = dfs(board,i,j,visited,0,word);
+                if( flag ){
                     return true;
                 }
             }
@@ -19,22 +20,22 @@ public class WordSearch {
         return false;
     }
 
-    private boolean dfs(char[][] board, String word, int x, int y, int index, boolean[][] visited){
-        if(board[x][y] != word.charAt(index)) return false;
-        if(index == word.length() - 1) return true;
-        int m = board.length, n = board[0].length;
+
+    public boolean dfs(char[][] board, int x, int y, boolean[][] visited,int index, String word){
+        if( board[x][y] != word.charAt(index) ) return false;
+        if(index == word.length()-1) return true;
+        if( visited[x][y] ) return false;
         visited[x][y] = true;
-        boolean ans = false;
-        for(int i = 0;i < 4;++i){
-            int r = x + dirctions[i], c = y + dirctions[i+1];
-            if(r >=0 && r<m && c>=0 && c<n && !visited[r][c]){
-                ans = dfs(board,word,r,c,index+1,visited);
+        for(int i = 0;i<4;++i){
+            int r = x + directions[i], c = y + directions[i+1];
+            if( r >= 0 && r < m && c >= 0 && c <n && !visited[r][c]){
+                boolean ans = dfs(board,r,c,visited,index+1,word);
                 if(ans){
-                    break;
+                    return true;
                 }
             }
         }
         visited[x][y] = false;
-        return ans;
+        return false;
     }
 }
