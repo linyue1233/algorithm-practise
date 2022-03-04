@@ -87,6 +87,32 @@ public class AsteroidCollision {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(asteroidCollision(new int[]{-9,5,-7,5,2,-5,-5,8,3,10})));
+        System.out.println(Arrays.toString(method2(new int[]{-9,5,-7,5,2,-5,-5,8,3,10})));
+    }
+
+
+    public static int[] method2(int[] asteroids){
+        Deque<Integer> deque = new LinkedList<>();
+        for (int asteroid : asteroids) {
+            if (asteroid <= 0) {
+                while (!deque.isEmpty() && deque.peekLast() > 0 && deque.peekLast() < -asteroid) {
+                    deque.pollLast();
+                }
+                if (!deque.isEmpty() && deque.peekLast() == -asteroid) {
+                    deque.pollLast();
+                } else if (!deque.isEmpty() && deque.peekLast() > -asteroid) {
+                    continue;
+                } else {
+                    deque.offerLast(asteroid);
+                }
+            } else {
+                deque.offerLast(asteroid);
+            }
+        }
+        int[] ans = new int[deque.size()];
+        for(int i = 0;i<ans.length;++i){
+            ans[i] = deque.pollFirst();
+        }
+        return ans;
     }
 }
