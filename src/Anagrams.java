@@ -5,24 +5,70 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Anagrams {
-    public  static int lengthOfLongestSubstring (String s) {
-        int ans = 0, start = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for(int i = 0;i<s.length();++i){
-            if(map.containsKey(s.charAt(i))){
-                // update new start, jump the repeated letter
-                // make sure the right of start has no repeated letter
-                start = Math.max(start, map.get(s.charAt(i)) + 1);
-            }
-            ans = Math.max(ans,i - start + 1);
-            map.put(s.charAt(i),i);
+    public static String test(int n, String[] operations) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; ++i) {
+            sb.append('0');
         }
-        return ans;
+        int minIndex = 0;
+        for (String item : operations) {
+            if (item == "L") {
+                if (minIndex < n && sb.charAt(minIndex) == '1') {
+                    while (minIndex < n && sb.charAt(minIndex) == '1') {
+                        minIndex++;
+                    }
+                }
+                if( minIndex <n) sb.setCharAt(minIndex, '1');
+            } else {
+                int tempIndex = item.charAt(1) - '0';
+                sb.setCharAt(tempIndex,'0');
+                // update the minIndex
+                tempIndex--;
+                while(tempIndex >=0 && sb.charAt(tempIndex) == '1'){
+                    tempIndex--;
+                }
+                minIndex = tempIndex > 0 ? tempIndex : item.charAt(1) - '0';
+            }
+        }
+        return sb.toString();
     }
 
-//010 010
-//    011
+    public static String sticky(String text, char[] sticky){
+        Set<Character> set = new HashSet<>();
+        for(char c : sticky){
+            char temp = Character.toLowerCase(c);
+            set.add(temp);
+        }
+        StringBuilder sb = new StringBuilder();
+        int n = text.length();
+        int index = 0;
+        while( index < n){
+            int tempIndex = index;
+            char c = Character.toLowerCase(text.charAt(index));
+            if(set.contains(c)){
+                int mod = 1;
+                index++;
+                while( index < n && Character.toLowerCase(text.charAt(index)) == c){
+                    index++;
+                    mod++;
+                }
+                for(int i = 0;i<mod / 2;++i){
+                    sb.append(text.charAt(tempIndex));
+                }
+            }else{
+                index++;
+                sb.append(text.charAt(tempIndex));
+            }
+        }
+        return sb.toString();
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("pwwkew"));
+//        System.out.println(test(10, new String[]{"L","L","C0","L","C3","L","C1"}));
+//        System.out.println(test(2, new String[]{"L","L","L","C1"}));
+        System.out.println(sticky("Heellllo,thiisss is CCcc CCodeeSiggnall",new char[]{'c','e','l','m'}));
+        System.out.println(sticky("BBannanna",new char[]{'n'}));
+
     }
 }
