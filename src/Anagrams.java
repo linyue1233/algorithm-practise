@@ -63,12 +63,35 @@ public class Anagrams {
         return sb.toString();
     }
 
+    public static int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int ans = Integer.MAX_VALUE;
+        for(int i = 0;i<n;++i){
+            int left = i+1, right = n - 1;
+            while(left < right){
+                long tempSum = nums[i] + nums[left] + nums[right];
+                if( Math.abs(tempSum - target) < Math.abs((long) ans - target) ){
+                    ans = (int)tempSum;
+                }
+                if( tempSum == target){
+                    return target;
+                }else if( tempSum > target){
+                    right--;
+                }else{
+                    left++;
+                }
+            }
+        }
+        return ans;
+    }
 
     public static void main(String[] args) {
 //        System.out.println(test(10, new String[]{"L","L","C0","L","C3","L","C1"}));
 //        System.out.println(test(2, new String[]{"L","L","L","C1"}));
-        System.out.println(sticky("Heellllo,thiisss is CCcc CCodeeSiggnall",new char[]{'c','e','l','m'}));
-        System.out.println(sticky("BBannanna",new char[]{'n'}));
+//        System.out.println(sticky("Heellllo,thiisss is CCcc CCodeeSiggnall",new char[]{'c','e','l','m'}));
+//        System.out.println(sticky("BBannanna",new char[]{'n'}));
+        System.out.println(threeSumClosest(new int[]{-3,-2,-5,3,-4},-1));
 
     }
 }
