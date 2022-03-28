@@ -22,7 +22,7 @@ public class MinimumWindowSub {
                         minSize = i-left+1;
                         minLeft = left;
                     }
-                    // such as aaaaabc ,abc
+                    // such as aaaabc ,abc
                     // --store[s.charAt(i)] will decrease the extra char
                     if(flag[s.charAt(left)] && ++store[s.charAt(left)] > 0){
                         count--;
