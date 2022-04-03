@@ -86,12 +86,55 @@ public class Anagrams {
         return ans;
     }
 
+    public static int findDuplicate(int[] nums) {
+        int n = nums.length;
+        int left = 0, right = 1;
+        while(true){
+            if(nums[left] == nums[right] && left!=right){
+                return nums[left];
+            }
+            left++;
+            right = right + 2;
+            if( left == right){
+                left = 0;
+            }
+            if(left == n){
+                left = 0;
+            }
+            if(right >= n){
+                right = (right-n) % n;
+            }
+        }
+    }
+
+    public String mostCommonWord(String paragraph, String[] banned) {
+        // add a special character to store the last word
+        paragraph += ".";
+        Map<String,Integer> map = new HashMap<>();
+        StringBuilder sb = new StringBuilder();
+        String ans = "";
+        Set<String> set = new HashSet<>(Arrays.asList(banned));
+        int count = 0;
+        for( char c : paragraph.toCharArray()){
+            if(Character.isLetter(c)){
+                sb.append(Character.toLowerCase(c));
+            }else if(sb.length() > 0 ){
+                String temp = sb.toString();
+                if(  !set.contains(temp)){
+                    map.put(temp, map.getOrDefault(temp,0)+1);
+                    if( count < map.get(temp) ){
+                        ans = temp;
+                        count = map.get(temp);
+                    }
+                }
+                sb = new StringBuilder();
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-//        System.out.println(test(10, new String[]{"L","L","C0","L","C3","L","C1"}));
-//        System.out.println(test(2, new String[]{"L","L","L","C1"}));
-//        System.out.println(sticky("Heellllo,thiisss is CCcc CCodeeSiggnall",new char[]{'c','e','l','m'}));
-//        System.out.println(sticky("BBannanna",new char[]{'n'}));
-        System.out.println(threeSumClosest(new int[]{-3,-2,-5,3,-4},-1));
+        System.out.println(findDuplicate(new int[]{4,3,1,4,2}));
 
     }
 }
