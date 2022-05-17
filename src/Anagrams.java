@@ -133,8 +133,23 @@ public class Anagrams {
         return ans;
     }
 
-    public static void main(String[] args) {
-        System.out.println(findDuplicate(new int[]{4,3,1,4,2}));
+    public static int binaryGap(int n) {
+        int ans = 0;
+        int pre = -1, cur = 0;
+        while( n != 0){
+            if( (n & 1) == 1){
+                if( pre >= 0 ){
+                    ans = Math.max(ans,cur - pre);
+                }
+                pre = cur;
+            }
+            cur++;
+            n >>= 1;
+        }
+        return ans;
+    }
 
+    public static void main(String[] args) {
+        System.out.println(binaryGap(22));
     }
 }
