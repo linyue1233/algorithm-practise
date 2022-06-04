@@ -12,6 +12,7 @@ public class MeetingRoomII {
         int ans = 0;
         // build min-heap according end day
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (a[1] - b[1]));
+        // now add into pq is sorted well
         for (int i = 0; i < intervals.length; ++i) {
             if (pq.isEmpty()) {
                 ans++;
